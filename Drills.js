@@ -13,18 +13,25 @@ const countingSheep = function (num) {
   }
 };
 
-let sheep = 3;
-console.log(countingSheep(sheep));
+//let sheep = 3;
+//console.log(countingSheep(sheep));
 
 /*
 2. Power Calculator
-Write a function called powerCalculator() that takes two parameters, an integer as a base, and another integer as an exponent. 
-The function returns the value of the base raised to the power of the exponent. 
-Use only exponents greater than or equal to 0 (positive numbers)
-
-powerCalculator(10,2) should return 100
-powerCalculator(10,-2) should return exponent should be >= 0
 */
+const powerCalculator = function(integer, exponent) {
+  if(exponent < 0) {
+    return 'exponent should be >= 0';
+  } if(exponent === 1) {
+    return integer;
+  } else {
+    return integer * powerCalculator(integer, (exponent - 1));
+  }
+};
+
+//let int = 3;
+//let exp = 5;
+//console.log(powerCalculator(int, exp))
 
 /*
 3. Reverse String
