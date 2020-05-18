@@ -56,7 +56,6 @@ const nthTriangular = function(num) {
   if(num === 1) {
     return num;
   }
-
   return num + nthTriangular(num-1);
 };
 
@@ -71,6 +70,20 @@ Don't use JS array's split function to solve this problem.
 Input: 02/20/2020
 Output: ["02", "20", "2020"]
 */
+const stringSplitter = function (str, seperator) {
+  let arry = [];
+  let breaker = str.indexOf(seperator);
+  let newStr = str.slice(breaker + 1);
+  if(!str.includes(seperator)) {
+    arry.push(str);
+    return arry;
+  } arry.push(str.slice(0, breaker));
+  return arry.concat(stringSplitter(newStr, seperator));
+};
+
+let input = '02/20/2020';
+let seperate = '/';
+console.log(stringSplitter(input, seperate));
 
 /*
 6. Fibonacci
