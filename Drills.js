@@ -46,21 +46,22 @@ const reverseString = function(str) {
   return str.slice(length - 1) + reverseString(newStr);
 };
 
-let word = 'hammer';
-console.log(reverseString(word));
+//let word = 'hammer';
+//console.log(reverseString(word));
 
 /*
 4. nth Triangular Number
-Calculate the nth triangular number. 
-A triangular number counts the objects that can form an equilateral triangle. 
-The nth triangular number is the number of dots composing a triangle with n dots on a side, and is equal to the sum of the n natural numbers from 1 to n. This is the Triangular Number Sequence: 1, 3, 6, 10, 15, 21, 28, 36, 45.
-
-                          *
-            *           *    *
-*     |   *   *  |   *    *    *  |
-
- 1st       2nd           3rd             nth?  
 */
+const nthTriangular = function(num) {
+  if(num === 1) {
+    return num;
+  }
+
+  return num + nthTriangular(num-1);
+};
+
+//let triangular = 7;
+//console.log(nthTriangular(triangular));
 
 /*
 5. String Splitter
