@@ -35,9 +35,19 @@ const powerCalculator = function(integer, exponent) {
 
 /*
 3. Reverse String
-Write a function that reverses a string. 
-Take a string as input, reverse the string, and return the new string.
 */
+const reverseString = function(str) {
+  let length = str.length;
+  let newStr = str.slice(0, length - 1);
+  
+  if(length === 1) {
+    return str;
+  }
+  return str.slice(length - 1) + reverseString(newStr);
+};
+
+let word = 'hammer';
+console.log(reverseString(word));
 
 /*
 4. nth Triangular Number
