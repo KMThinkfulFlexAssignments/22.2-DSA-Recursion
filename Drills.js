@@ -1,8 +1,5 @@
 'use strict';
-/*
-1. Counting Sheep
-*/
-
+/*1. Counting Sheep*/
 const countingSheep = function (num) {
   if(num < 0) {
     return 'num must be positive';
@@ -16,9 +13,7 @@ const countingSheep = function (num) {
 //let sheep = 3;
 //console.log(countingSheep(sheep));
 
-/*
-2. Power Calculator
-*/
+/*2. Power Calculator*/
 const powerCalculator = function(integer, exponent) {
   if(exponent < 0) {
     return 'exponent should be >= 0';
@@ -33,9 +28,7 @@ const powerCalculator = function(integer, exponent) {
 //let exp = 5;
 //console.log(powerCalculator(int, exp))
 
-/*
-3. Reverse String
-*/
+/*3. Reverse String*/
 const reverseString = function(str) {
   let length = str.length;
   let newStr = str.slice(0, length - 1);
@@ -49,8 +42,7 @@ const reverseString = function(str) {
 //let word = 'hammer';
 //console.log(reverseString(word));
 
-/*
-4. nth Triangular Number
+/*4. nth Triangular Number
 */
 const nthTriangular = function(num) {
   if(num === 1) {
@@ -62,9 +54,7 @@ const nthTriangular = function(num) {
 //let triangular = 7;
 //console.log(nthTriangular(triangular));
 
-/*
-5. String Splitter
-*/
+/*5. String Splitter*/
 const stringSplitter = function (str, seperator) {
   let arry = [];
   let breaker = str.indexOf(seperator);
@@ -80,9 +70,7 @@ const stringSplitter = function (str, seperator) {
 //let seperate = '/';
 //console.log(stringSplitter(input, seperate));
 
-/*
-6. Fibonacci
-*/
+/*6. Fibonacci*/
 const fibonacci = function(num) {
   if(num === 1) {
     return [0, 1];
@@ -96,9 +84,7 @@ const fibonacci = function(num) {
 //let testNum = 7;
 //console.log(fibonacci(testNum));
 
-/*
-7. Factorial
-*/
+/*7. Factorial*/
 const factorial = function(num) {
   if(num === 1) {
     return 1;
@@ -182,6 +168,7 @@ let myMaze = [
 ];
 
 //console.log(navigator(mySmallMaze));
+
 /*
 9. Find ALL the ways out of the maze
 Use the above maze and modify your solution so it finds All the possible exit paths through the Maze. 
@@ -197,14 +184,7 @@ Path to the exit: RRDDRRUURRDDDD
 Path to the exit: RRDDRRRRDD
 */
 
-/*
-10. Anagrams
-An anagram is any word or phrase that uses the letters of a given ("subject") word or phrase in another, rearranged order. 
-Write a function that creates an anagram list, listing all the rearrangements of a given word. 
-For example, if the user types "east", the program should list all 24 permutations, including "eats", "etas", "teas", and non-words like "tsae".
-
-Hint: For your algorithm, you might want to think about a prefix and use that to create the new words. For example, given "east", use "e" as a prefix and place it in front of all 6 permutations of "ast" — "ast", "ats", "sat", "sta", "tas", and "tsa". This will give you the words "east", "eats", "esat", "esta", "etas", and "etsa". Continue this way until you find all the anagrams for "east". Then you can use "a" as a prefix and permute the remaining words "est". For "east", there should be 24 words.
-*/
+/*10. Anagrams*/
 const makeAnagrams = function(subject) {
   let anagramList = [];
   if(subject.length <= 1) {
@@ -223,6 +203,7 @@ const makeAnagrams = function(subject) {
 
 let testSubject = 'abc';
 console.log(makeAnagrams(testSubject));
+
 /*
 11. Organization Chart
 Write a recursive function that prints the following organization chart. 
@@ -267,9 +248,14 @@ Zuckerberg
             Wes
 */
 
-/*
-12. Binary Representation
-Write a recursive function that prints out the binary representation of a given number. 
-For example, the program should take 3 as an input and print 11 as output, or 25 as an input and print 11001 as an output. 
-Note that the binary representation of 0 should be 0.
-*/
+/*12. Binary Representation*/
+
+const binaryRepresentation = function(num) {
+  if(num < 1) {
+    return '';
+  }
+  return binaryRepresentation(num / 2) + Math.floor(num % 2);
+};
+
+//let binaryTest = 25;
+//console.log(binaryRepresentation(binaryTest));
