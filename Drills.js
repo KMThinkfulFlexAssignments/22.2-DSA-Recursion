@@ -140,7 +140,48 @@ Passing through a blocked cell as well as passing though a cell that you have al
 
 For the above maze, a possible exit path can be RRDDLLDDRRRRRR
 */
+const navigator = function(maze) {
+  let route = '';
+  const path = function(column, row) {
+    if(maze[column][row] === 'e') {
+      return route;
+    } else if(maze[column][row] === ' ') {
+      maze[column][row] = '*';
+      if(column < maze.length - 1) {
+        route.concat('D');
+        path(column + 1, row);
+      }
+      if(row < maze[column].length - 1) {
+        route.concat('R');
+        path(column, row + 1);
+      }
+      if(column === '*') {
+        route.concat('U');
+        path(column - 1, row);
+      }
+      if(row === '*') {
+        route.concat('L');
+        path(column, row -1);
+      }
+    }
+  };
+  return path(maze[0], maze[0][0]);
+};
 
+let mySmallMaze = [
+  [' ', ' ', ' '],
+  [' ', '*', ' '],
+  [' ', ' ', 'e']
+];
+let myMaze = [
+  [' ', ' ', ' ', '*', ' ', ' ', ' '],
+  ['*', '*', ' ', '*', ' ', '*', ' '],
+  [' ', ' ', ' ', ' ', ' ', ' ', ' '],
+  [' ', '*', '*', '*', '*', '*', ' '],
+  [' ', ' ', ' ', ' ', ' ', ' ', 'e']
+];
+
+//console.log(navigator(mySmallMaze));
 /*
 9. Find ALL the ways out of the maze
 Use the above maze and modify your solution so it finds All the possible exit paths through the Maze. 
@@ -164,7 +205,24 @@ For example, if the user types "east", the program should list all 24 permutatio
 
 Hint: For your algorithm, you might want to think about a prefix and use that to create the new words. For example, given "east", use "e" as a prefix and place it in front of all 6 permutations of "ast" — "ast", "ats", "sat", "sta", "tas", and "tsa". This will give you the words "east", "eats", "esat", "esta", "etas", and "etsa". Continue this way until you find all the anagrams for "east". Then you can use "a" as a prefix and permute the remaining words "est". For "east", there should be 24 words.
 */
+const makeAnagrams = function(subject) {
+  let anagramList = [];
+  if(subject.length <= 1) {
+    return [subject];
+  }
+  const splitSubject = subject.split('');
+  splitSubject.forEach((letter, index) => {
+    let charLeft = [...splitSubject.slice(0, index), ...splitSubject.slice(index + 1)].join('');
+    const permutations = makeAnagrams(charLeft);
+    permutations.forEach(permutation => {
+      anagramList.push(letter + permutation);
+    });
+  });
+  return anagramList;
+};
 
+let testSubject = 'abc';
+console.log(makeAnagrams(testSubject));
 /*
 11. Organization Chart
 Write a recursive function that prints the following organization chart. 
