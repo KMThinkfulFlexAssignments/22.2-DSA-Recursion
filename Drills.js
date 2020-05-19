@@ -64,11 +64,6 @@ const nthTriangular = function(num) {
 
 /*
 5. String Splitter
-Write a recursive function that splits a string based on a separator (similar to String.prototype.split). 
-Don't use JS array's split function to solve this problem.
-
-Input: 02/20/2020
-Output: ["02", "20", "2020"]
 */
 const stringSplitter = function (str, seperator) {
   let arry = [];
@@ -81,9 +76,9 @@ const stringSplitter = function (str, seperator) {
   return arry.concat(stringSplitter(newStr, seperator));
 };
 
-let input = '02/20/2020';
-let seperate = '/';
-console.log(stringSplitter(input, seperate));
+//let input = '02/20/2020';
+//let seperate = '/';
+//console.log(stringSplitter(input, seperate));
 
 /*
 6. Fibonacci
@@ -92,6 +87,18 @@ The Fibonacci sequence is a series of numbers in which each number is the sum of
 For example, the 7th Fibonacci number in a Fibonacci sequence is 13. 
 The sequence looks as follows: 1, 1, 2, 3, 5, 8, 13.
 */
+const fibonacci = function(num) {
+  if(num === 1) {
+    return [0, 1];
+  } else {
+    let newFib = fibonacci(num - 1);
+    newFib.push(newFib[newFib.length - 1] + newFib[newFib.length - 2]);
+    return newFib;
+  }
+};
+
+//let testNum = 7;
+//console.log(fibonacci(testNum));
 
 /*
 7. Factorial
