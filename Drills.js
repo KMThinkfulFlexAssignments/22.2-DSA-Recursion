@@ -201,52 +201,83 @@ const makeAnagrams = function(subject) {
   return anagramList;
 };
 
-let testSubject = 'abc';
-console.log(makeAnagrams(testSubject));
+//let testSubject = 'abc';
+//console.log(makeAnagrams(testSubject));
 
-/*
-11. Organization Chart
-Write a recursive function that prints the following organization chart. 
-Your output should be as shown below with proper indentation to show the hierarchy. 
-You may store the org chart in an object and send that as an input to your program.
+/*11. Organization Chart*/
+const org = {
+  'Zuckerberg': {
+    'Schroepher': {
+      'Bosworth': {
+        'Steve':{},
+        'Kyle':{},
+        'Andra':{}
+      },
+      'Zhao':{
+        'Richie':{},
+        'Sofia':{},
+        'Jen':{}
+      },
+      'Badros': {
+        'John':{},
+        'Mike':{},
+        'Pat':{}
+      },
+      'Parikh': {
+        'Zach':{},
+        'Ryan':{},
+        'Tes':{}
+      }
+    },
+    'Schrage': {
+      'VanDyck': {
+        'Sabrina':{},
+        'Michelle':{},
+        'Josh':{}
+      },
+      'Swain': {
+        'Blanch':{},
+        'Tom':{},
+        'Joe':{}
+      },
+      'Frankovsky': {
+        'Jasee':{},
+        'Brian':{},
+        'Margaret':{}
+      }
+    },
+    'Sandberg': {
+      'Goler': {
+        'Eddie':{},
+        'Julie':{},
+        'Annie':{}
+      },
+      'Hernandez': {
+        'Rowi':{},
+        'Inga':{},
+        'Morgan':{}
+      },
+      'Moissinac': {
+        'Amy':{},
+        'Chuck':{},
+        'Vinni':{}
+      },
+      'Kelley': {
+        'Eric':{},
+        'Ana':{},
+        'Wes':{}
+      }
+    }}};
 
-Zuckerberg
-    Schroepfer
-        Bosworth
-            Steve
-            Kyle
-            Andra
-        Zhao
-            Richie
-            Sofia
-            Jen
-    Schrage
-        VanDyck
-            Sabrina
-            Michelle
-            Josh
-        Swain
-            Blanch
-            Tom
-            Joe
-    Sandberg
-        Goler
-            Eddie
-            Julie
-            Annie
-       Hernandez
-            Rowi
-            Inga
-            Morgan
-       Moissinac
-            Amy
-            Chuck
-            Vinni
-       Kelley
-            Eric
-            Ana
-            Wes
-*/
+const organizeChart = function(chart, depth = 0) {
+  let indent = ' '.repeat(depth * 4);
+  Object.keys(chart).forEach(key => {
+    console.log(indent + key);
+    organizeChart(chart[key], depth + 1);
+  });
+};
+
+//console.log(organizeChart(org));
 
 /*12. Binary Representation*/
 
